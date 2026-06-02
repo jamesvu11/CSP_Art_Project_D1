@@ -156,6 +156,29 @@ def lightning(x, y, scale=0.4):
     
     _canvas.create_polygon(points, fill=_fill_color, outline=_outline_color, width=_line_thickness)
 
+#Rain
+#Written by Ryan with some AI to help tidy things up
+def draw_rain(num_drops=150, max_y=250):
+    """Generates semi-transparent look, angled rain streaks across the sky."""
+    set_outline_color("#6c8094")  
+    set_line_thickness(2)
+    
+    for i in range(num_drops):
+      
+        x1 = random.randint(-20, 600)
+        y1 = random.randint(0, max_y)
+        
+    
+        length = random.randint(12, 22)
+        slant = random.randint(3, 6)   
+        
+        x2 = x1 + slant
+        y2 = y1 + length
+        
+  
+        if y2 < max_y:
+            draw_line(x1, y1, x2, y2)
+
 
 
 
@@ -208,11 +231,16 @@ def draw_picture(width, height):
     fill_circle(435, 50, 24)
     fill_circle(458, 58, 18)
 
+
+   
     #Written by Ryan
     # 6. Fill the ground base
     set_fill_color("#41980a") 
     set_outline_color("")
     fill_rectangle(0, 250, 600, 150)
+    #Draw Rain
+    
+    draw_rain(num_drops=180, max_y=250)
 
     # 7. Draw Horizon Line
     #Written by Ryan
