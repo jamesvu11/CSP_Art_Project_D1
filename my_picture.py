@@ -118,7 +118,7 @@ def draw_text(x, y, text_string, font_size=16):
 
 #Written by James
 def draw_mountain(peak_x, peak_y, base_width, base_y, color_hex):
-    """Draws a mountain and adds a clean, proportional white snow cap to the peak."""
+
     # 1. Draw the main mountain body
     set_fill_color(color_hex)
     set_outline_color("grey")
@@ -139,7 +139,7 @@ def draw_mountain(peak_x, peak_y, base_width, base_y, color_hex):
 
 #Written by Ryan with some AI to help tidy things up
 def lightning(x, y, scale=0.4):
-    """Draws a unified, custom vector lightning bolt matching your reference image."""
+   
     set_fill_color("#FFD200")     # Solid golden yellow
     set_outline_color("#FFA500")  # Orange borders
     set_line_thickness(3)
@@ -159,7 +159,7 @@ def lightning(x, y, scale=0.4):
 #Rain
 #Written by Ryan with some AI to help tidy things up
 def draw_rain(num_drops=150, max_y=250):
-    """Generates semi-transparent look, angled rain streaks across the sky."""
+  
     set_outline_color("#6c8094")  
     set_line_thickness(2)
     
