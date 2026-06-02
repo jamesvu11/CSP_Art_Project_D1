@@ -115,9 +115,8 @@ def draw_text(x, y, text_string, font_size=16):
     _canvas.create_text(x, y, text=text_string, fill=_fill_color, anchor="nw", font=("Arial", font_size))
 
 
-# =====================================================================
-# UPDATED MOUNTAIN FUNCTION WITH SNOW CAPS
-# =====================================================================
+
+#Written by James
 def draw_mountain(peak_x, peak_y, base_width, base_y, color_hex):
     """Draws a mountain and adds a clean, proportional white snow cap to the peak."""
     # 1. Draw the main mountain body
@@ -127,7 +126,7 @@ def draw_mountain(peak_x, peak_y, base_width, base_y, color_hex):
     half_width = base_width / 2
     fill_triangle(peak_x - half_width, base_y, peak_x, peak_y, peak_x + half_width, base_y)
     
-    # 2. Draw the snow cap (Top 25% of the mountain)
+
     snow_height_ratio = 0.25
     mountain_height = base_y - peak_y
     
@@ -138,7 +137,7 @@ def draw_mountain(peak_x, peak_y, base_width, base_y, color_hex):
     set_outline_color("#cccccc") # Light grey outline to make the white pop against the sky
     fill_triangle(peak_x - snow_half_width, snow_base_y, peak_x, peak_y, peak_x + snow_half_width, snow_base_y)
 
-
+#Written by Ryan with some AI to help tidy things up
 def lightning(x, y, scale=0.4):
     """Draws a unified, custom vector lightning bolt matching your reference image."""
     set_fill_color("#FFD200")     # Solid golden yellow
@@ -158,66 +157,71 @@ def lightning(x, y, scale=0.4):
     _canvas.create_polygon(points, fill=_fill_color, outline=_outline_color, width=_line_thickness)
 
 
-# =====================================================================
-# MAIN PICTURE
-# =====================================================================
+
+
 def draw_picture(width, height):
-    """Draws a static picture combining scenery elements, clouds, forest, and lightning."""
+  
     
     # 1. Fill the background sky
     fill_background("#FF8C00") 
     
-    # 2. Draw a red circle
+    # 2. Draw the sun
     set_fill_color("red")
     set_outline_color("black")
     set_line_thickness(1)
     fill_circle(450, 120, 50) 
 
-    # 3. Draw Mountains (They will automatically render with snow caps now)
-    # --- LEFT SIDE RANGE ---
+    # 3. Draw Mountains 
+    #Written by James with some AI to help tidy things up
+
     draw_mountain(150, 100, 200, 250, "#a0a0a0") 
     draw_mountain(250, 150, 250, 250, "#c0c0c0") 
     draw_mountain(100, 150, 300, 250, "#808080") 
     draw_mountain(220, 80, 250, 250, "#a0a0a0")  
     
-    # --- RIGHT SIDE RANGE (Mirrored/Duplicated) ---
+    
     draw_mountain(450, 100, 200, 250, "#a0a0a0") 
     draw_mountain(350, 150, 250, 250, "#c0c0c0") 
     draw_mountain(500, 150, 300, 250, "#808080") 
     draw_mountain(380, 80, 250, 250, "#a0a0a0")  
 
-    # 4. Draw Lightning (Drawn behind the clouds)
+    # 4. Draw Lightning 
+    #Written by Ryan
     lightning(95, 50, scale=0.3)    
     lightning(390, 48, scale=0.22)
     
-    # 5. Draw Clouds (Drawn on top of the lightning so it hides the flat top edge)
+    #Written by Lionel with some AI to help tidy things up
+    #Clouds
     set_fill_color("white")
     set_outline_color("#cccccc")   
     set_line_thickness(1)
 
-    # Cloud 1 — Left side cluster
+    # Cloud 1 — Left side 
     fill_circle(80,  65, 30)
     fill_circle(110, 50, 38)
     fill_circle(145, 57, 28)
     fill_circle(170, 65, 22)
 
-    # Cloud 2 — Right side cluster
+    # Cloud 2 — Right side
     fill_circle(380, 55, 22)
     fill_circle(405, 43, 30)
     fill_circle(435, 50, 24)
     fill_circle(458, 58, 18)
 
+    #Written by Ryan
     # 6. Fill the ground base
     set_fill_color("#41980a") 
     set_outline_color("")
     fill_rectangle(0, 250, 600, 150)
 
-    # 7. Draw Horizon Line matching the bottom base of the mountains
+    # 7. Draw Horizon Line
+    #Written by Ryan
     set_outline_color("black")
     set_line_thickness(1)
     draw_line(0, 250, 600, 250)
     
-    # 8. Draw Forest (Way down in the absolute foreground)
+    # 8. Draw Forest
+    #Written by Justin with some AI to help tidy things up
     for x in range(30, 550, 85):
         set_fill_color("brown")  
         fill_rectangle(x, 260, 20, 60)
